@@ -1,0 +1,67 @@
+---
+const stats = [
+  {
+    name: 'Years',
+    value: '1', // new venture, be honest
+  },
+  {
+    name: 'Projects',
+    value: '3+', // RecSys, Goldminer, Film-maker (so far)
+  },
+  {
+    name: 'Focus Areas',
+    value: 'AI / ML',
+  },
+  {
+    name: 'Philosophy',
+    value: 'Mindfulness',
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
+      <img
+        class="mx-auto h-auto w-full max-w-xl rounded-3xl"
+        width="576"
+        height="864"
+        src="/assets/about.webp"
+        alt="AI prototypes and mindful design"
+      />
+      <div class="flex flex-col gap-10">
+        <!-- Mission description -->
+        <div class="space-y-8 sm:space-y-12">
+          <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Our Mission</h2>
+          <div class="space-y-6">
+            <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
+              At Anapana.ai, the mission is simple: build prototypes and MVPs that help startups
+              validate ideas quickly without burning time or money.
+            </p>
+            <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
+              By combining mindfulness with cutting-edge engineering, I focus on clarity,
+              simplicity, and delivering results that actually work &mdash; not hype or unnecessary
+              complexity.
+            </p>
+            <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
+              Whether it's a recommender system, a data-mining agent, or a generative media
+              prototype, Anapana.ai exists to turn concepts into tangible, working software fast.
+            </p>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <dl class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {
+            stats.map((stat) => (
+              <div class="border-primary-900/10 dark:border-primary-300/10 rounded-3xl border p-6">
+                <dt class="text-base">{stat.name}</dt>
+                <dd class="text-3xl font-medium tracking-tight">{stat.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

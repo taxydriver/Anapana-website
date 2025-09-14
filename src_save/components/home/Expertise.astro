@@ -1,0 +1,43 @@
+---
+const expertise = [
+  {
+    name: 'Recommender Systems',
+    description:
+      'Deep & classical RecSys: from Matrix Factorization and ALS to DCNv2 and MMoE multi-task CTR/CVR models.',
+    icon: '📊',
+  },
+  {
+    name: 'AI Agents',
+    description:
+      'Custom intelligent agents like Goldminer (data→insights) and Film-maker (script→generative media).',
+    icon: '🤖',
+  },
+  {
+    name: 'MLOps & Cloud',
+    description:
+      'Deploy on Google Cloud (Vertex AI, Kubeflow) or AWS/Azure. Production-ready workflows with monitoring.',
+    icon: '☁️',
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="space-y-12">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Expertise</h2>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          expertise.map((item) => (
+            <div class="flex flex-col gap-4 rounded-3xl border p-6">
+              <div class="text-3xl">{item.icon}</div>
+              <h3 class="text-xl font-semibold">{item.name}</h3>
+              <p class="text-primary-950/70 dark:text-primary-200/70 text-base">
+                {item.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,8 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- calm, mindful “enso” circle -->
+  <circle cx="32" cy="32" r="22" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+  <!-- subtle gap for the enso -->
+  <path d="M32 10 a22 22 0 1 1 -0.01 0" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.35"/>
+  <!-- simple “A” monogram -->
+  <path d="M24 42 L32 22 L40 42 M28 34 H36" stroke="#0ea5e9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
