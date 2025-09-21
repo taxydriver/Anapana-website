@@ -1,29 +1,79 @@
-<section class="py-16 sm:py-20">
-  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-    <div class="flex flex-col gap-16">
-      <div class="flex flex-col items-start gap-8 sm:gap-10">
-        <div class="flex max-w-xl flex-col items-start gap-4 sm:gap-6">
-         <h1 class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-  Mindful AI for Startups
-</h1>
-<p class="text-primary-950/70 dark:text-primary-200/70 text-lg sm:text-xl">
-  We build prototypes, recommender systems, and intelligent agents &mdash;
-  fast, simple, and production-ready.
-</p>
-<a
-  href="/contact"
-  class="bg-primary-600 dark:bg-primary-400 hover:bg-primary-700 dark:hover:bg-primary-300 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400 dark:text-primary-950 inline-flex items-center justify-center rounded-full border border-transparent px-5 py-3 text-base font-medium text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
->
-  Work with us
-</a>
-      </div>
-      <img
-        class="h-auto w-full rounded-3xl"
-        width="1280"
-        height="640"
-        src="/assets/hero.webp"
-        alt="Hero picture"
-      />
+---
+import BreathingGraphic from "./BreathingGraphic.astro";
+---
+
+<section class="hero">
+  <div class="inner">
+    <div class="copy">
+      <h1 class="title">Mindful AI</h1>
+      <p class="tag">
+        Calm, clear, outcome-driven machine learning.  
+        Breathe. Build. Ship.
+      </p>
+      <!-- Optional CTA buttons -->
+      <!-- <div class="actions">
+        <a href="/contact" class="btn">Work with us</a>
+        <a href="/services" class="btn ghost">What we do</a>
+      </div> -->
+    </div>
+
+    <div class="visual">
+      <BreathingGraphic />
     </div>
   </div>
 </section>
+
+<style>
+  .hero {
+    padding-block: clamp(48px, 6vw, 96px);
+  }
+
+  /* Horizontal on wide screens, stacked on mobile */
+  .inner {
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-inline: clamp(16px, 4vw, 32px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(24px, 4vw, 48px);
+    align-items: center;
+  }
+  @media (min-width: 880px) {
+    .inner {
+      grid-template-columns: 1.1fr 0.9fr; /* text | graphic */
+    }
+  }
+
+  .copy {
+    display: grid;
+    gap: 14px;
+  }
+  .title {
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .tag {
+    font-size: clamp(16px, 2.2vw, 20px);
+    color: oklch(38% 0.02 250);
+    margin: 0;
+  }
+
+  .visual {
+    display: grid;
+    place-items: center;
+  }
+
+  /* Optional button styles if you keep CTAs */
+  .actions { display: flex; gap: 12px; margin-top: 10px; }
+  .btn {
+    padding: 10px 16px; border-radius: 999px;
+    background: oklch(78% 0.09 220); color: white; text-decoration: none;
+    font-weight: 600;
+  }
+  .btn.ghost {
+    background: transparent; color: oklch(45% 0.08 220);
+    outline: 1px solid oklch(80% 0.05 220);
+  }
+</style>
