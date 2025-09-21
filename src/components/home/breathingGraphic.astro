@@ -1,85 +1,71 @@
----
-/* No props needed, purely visual */
----
-<style>
-  .wrap {
-    display: grid;
-    place-items: center;
-    inline-size: clamp(220px, 28vw, 360px);
-    aspect-ratio: 1 / 1;
-    position: relative;
-    isolation: isolate;
-  }
-
-  .pulse {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: radial-gradient(closest-side, var(--c1) 0 55%, transparent 56%),
-                radial-gradient(circle at 70% 30%, color-mix(in oklab, var(--c1), white 20%), transparent 60%);
-    animation: breathe 6s ease-in-out infinite;
-    filter: drop-shadow(0 10px 30px color-mix(in oklab, var(--c1), black 40%));
-  }
-
-  .ring {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 2px solid color-mix(in oklab, var(--c1), white 40%);
-    animation: ring 6s ease-in-out infinite;
-  }
-
-  .text {
-    position: relative;
-    font-weight: 600;
-    letter-spacing: .02em;
-    text-align: center;
-    color: var(--ink);
-  }
-
-  .line {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    opacity: 0;
-    animation: say 6s infinite;
-  }
-  .line:nth-child(1) { animation-delay: 0s; }
-  .line:nth-child(2) { animation-delay: 3s; }
-
-  @keyframes breathe {
-    0%,100% { transform: scale(.92); }
-    50%     { transform: scale(1.12); }
-  }
-  @keyframes ring {
-    0%,100% { transform: scale(1); opacity: .8; }
-    50%     { transform: scale(1.08); opacity: 1; }
-  }
-  @keyframes say {
-    0%,40%   { opacity: 1; }
-    50%,100% { opacity: 0; }
-  }
-
-  /* Theme tokens (tweak to match your palette) */
-  :root {
-    --c1: oklch(78% 0.09 220);     /* calm blue */
-    --ink: oklch(25% 0.02 250);
-  }
-
-  /* Respect reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .pulse, .ring { animation: none; }
-    .line { animation: none; opacity: 1; }
-  }
-</style>
-
-<div class="wrap" aria-label="Breathing guidance graphic">
-  <div class="pulse" aria-hidden="true"></div>
-  <div class="ring" aria-hidden="true"></div>
+<div class="wrap">
+  <div class="pulse"></div>
+  <div class="ring"></div>
 
   <div class="text">
-    <div class="line">Breath in…</div>
-    <div class="line">Breath out…</div>
+    <div class="line">Breathe in&hellip;</div>
+    <div class="line">Breathe out&hellip;</div>
   </div>
 </div>
+
+<style>
+.wrap {
+  display: grid;
+  place-items: center;   /* centers children */
+  width: clamp(220px, 28vw, 360px);
+  aspect-ratio: 1 / 1;
+  position: relative;
+}
+
+.pulse, .ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.pulse {
+  background: radial-gradient(closest-side, var(--c1) 0 55%, transparent 56%);
+  animation: breathe 6s ease-in-out infinite;
+}
+
+.ring {
+  border: 2px solid color-mix(in oklab, var(--c1), white 40%);
+  animation: ring 6s ease-in-out infinite;
+}
+
+.text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;   /* 👈 puts text in the exact middle */
+  font-weight: 600;
+  color: var(--ink);
+  text-align: center;
+}
+
+.line {
+  position: absolute;
+  opacity: 0;
+  animation: say 6s infinite;
+}
+.line:nth-child(1) { animation-delay: 0s; }
+.line:nth-child(2) { animation-delay: 3s; }
+
+@keyframes breathe {
+  0%,100% { transform: scale(.92); }
+  50%     { transform: scale(1.12); }
+}
+@keyframes ring {
+  0%,100% { transform: scale(1); opacity: .8; }
+  50%     { transform: scale(1.08); opacity: 1; }
+}
+@keyframes say {
+  0%,40%   { opacity: 1; }
+  50%,100% { opacity: 0; }
+}
+
+:root {
+  --c1: oklch(78% 0.09 220);
+  --ink: oklch(25% 0.02 250);
+}
+</style>

@@ -1,70 +1,132 @@
 ---
-const expertise = [
+const products = [
   {
     icon: "recsys",
-    title: "Recommender Systems",
-    description: "Deep & classical RecSys: from Matrix Factorization and ALS to DCNv2 and MMoE multi-task CTR/CVR models."
+    title: "Movie Recommender",
+    description:
+      "Rate a few films and get instant recommendations. ALS/ItemKNN plus DCNv2/MMoE variants.",
+    href: "/demos/recsys"
   },
   {
     icon: "ai",
-    title: "AI Agents",
-    description: "Custom intelligent agents like Goldminer (data insights) and Film-maker (generative media)."
+    title: "Goldminer Agent",
+    description:
+      "Point at a CSV or DB; it profiles, cleans, and trains a quick model with a readable report.",
+    href: "/demos/goldminer"
+  },
+  {
+    icon: "film",
+    title: "Film‑maker Agent",
+    description:
+      "Script‑to‑shots prototype: generates boards, voices, and rough cuts for a concept reel.",
+    href: "/demos/filmmaker"
+  },
+  {
+    icon: "ops",
+    title: "PocketAdmin",
+    description:
+      "An ops assistant that deploys, monitors, and reports on your ML jobs and costs.",
+    href: "/demos/pocketadmin"
   },
   {
     icon: "cloud",
-    title: "MLOps & Cloud",
-    description: "Deploy on Google Cloud (Vertex AI, Kubeflow) or AWS/Azure. Production-ready workflows with monitoring."
+    title: "MLOps Sandbox",
+    description:
+      "Vertex AI/Kubeflow pipeline template with experiment tracking and model registry.",
+    href: "/demos/mlops"
   },
+  {
+    icon: "viz",
+    title: "RecSys Metrics Board",
+    description:
+      "Interactive dashboard for NDCG@K, CTR/CVR, coverage, diversity, and more.",
+    href: "/demos/metrics"
+  }
 ];
 ---
 
-<section class="py-16 sm:py-20">
-  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-    <div class="space-y-12">
-      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Expertise</h2>
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+<section class="py-20 sm:py-28 bg-slate-950">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="space-y-8">
+      <div class="text-center">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-white">Products</h2>
+        <p class="mt-3 text-lg text-slate-300 max-w-prose mx-auto">
+          Hands‑on demos you can click and try. Built fast, stable, and simple—so you can
+          feel the value, not just read about it.
+        </p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
-          expertise.map((item) => (
-            <div class="flex flex-col gap-4 rounded-3xl border p-6">
+          products.map((item) => (
+            <article class="group flex flex-col gap-4 rounded-3xl bg-slate-900 p-6 ring-1 ring-slate-700 shadow-md transition hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(99,102,241,0.30)]">
               <div class="text-3xl">
                 {
                   item.icon === "recsys" && (
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <rect x="3" y="10" width="3" height="8" rx="1.5" fill="currentColor"/>
-                      <rect x="9.5" y="6" width="3" height="12" rx="1.5" fill="currentColor"/>
-                      <rect x="16" y="3" width="3" height="15" rx="1.5" fill="currentColor"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                      <rect x="3" y="10" width="3" height="8" rx="1.5"/>
+                      <rect x="9.5" y="6" width="3" height="12" rx="1.5"/>
+                      <rect x="16" y="3" width="3" height="15" rx="1.5"/>
                     </svg>
                   )
                 }
-               
-               
                 {
                   item.icon === "ai" && (
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <rect x="6" y="7" width="12" height="10" rx="6" fill="currentColor" opacity="0.15"/>
-                      <rect x="6" y="7" width="12" height="10" rx="6" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                      <circle cx="9" cy="12" r="1" fill="currentColor"/>
-                      <circle cx="15" cy="12" r="1" fill="currentColor"/>
-                      <rect x="10.5" y="15" width="3" height="1" rx="0.5" fill="currentColor"/>
-                      <rect x="4" y="10" width="2" height="4" rx="1" fill="currentColor"/>
-                      <rect x="18" y="10" width="2" height="4" rx="1" fill="currentColor"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                      <rect x="6" y="7" width="12" height="10" rx="6" opacity="0.2"/>
+                      <circle cx="9" cy="12" r="1"/>
+                      <circle cx="15" cy="12" r="1"/>
+                      <rect x="10.5" y="15" width="3" height="1" rx="0.5"/>
+                      <rect x="4" y="10" width="2" height="4" rx="1"/>
+                      <rect x="18" y="10" width="2" height="4" rx="1"/>
                     </svg>
                   )
                 }
                 {
                   item.icon === "cloud" && (
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path d="M7 19a5 5 0 0 1 0-10 7 7 0 0 1 13.94 1.5A4.5 4.5 0 0 1 19 19H7z" fill="currentColor" opacity="0.15"/>
-                      <path d="M7 19a5 5 0 0 1 0-10 7 7 0 0 1 13.94 1.5A4.5 4.5 0 0 1 19 19H7z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M7 19a5 5 0 0 1 0-10 7 7 0 0 1 13.94 1.5A4.5 4.5 0 0 1 19 19H7z" opacity="0.2"/>
+                    </svg>
+                  )
+                }
+                {
+                  item.icon === "film" && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                      <rect x="4" y="5" width="16" height="14" rx="2"/>
+                      <rect x="6" y="7" width="3" height="3" rx="0.5" fill="white"/>
+                      <rect x="10.5" y="7" width="3" height="3" rx="0.5" fill="white"/>
+                      <rect x="15" y="7" width="3" height="3" rx="0.5" fill="white"/>
+                    </svg>
+                  )
+                }
+                {
+                  item.icon === "ops" && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 3l2.5 4.5L20 9l-3.5 3 1 5-5-2.5L7.5 17l1-5L5 9l5.5-1.5L12 3z"/>
+                    </svg>
+                  )
+                }
+                {
+                  item.icon === "viz" && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                      <circle cx="12" cy="12" r="9" opacity="0.2"/>
+                      <path d="M12 12V4A8 8 0 1 1 4 12h8z"/>
                     </svg>
                   )
                 }
               </div>
-              <h3 class="text-xl font-semibold">{item.title}</h3>
-              <p class="text-primary-950/70 dark:text-primary-200/70 text-base">
+
+              <h3 class="text-xl font-semibold text-white">{item.title}</h3>
+              <p class="text-slate-300 text-base">
                 {item.description}
               </p>
-            </div>
+
+              <div class="mt-2">
+                <a href={item.href} class="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                  View demo <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
           ))
         }
       </div>

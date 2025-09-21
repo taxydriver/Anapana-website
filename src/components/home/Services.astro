@@ -1,64 +1,112 @@
----
-const services = [
-  {
-    name: 'Recommender Systems Demo',
-    description: 'From CF and ALS to DCNv2 and MMoE. APIs and Streamlit demos.',
-    href: 'https://duku-ui.onrender.com/', // or leave empty
-    icon: 'recsys',
-  },
-  {
-    name: 'Goldminer Agent',
-    description: 'Automates data ingestion, cleaning, features, and baseline models.',
-    icon: 'goldminer',
-  },
-  {
-    name: 'Film-maker Agent',
-    description: 'Script-to-shots pipeline for generative media experiments.',
-    icon: 'filmmaker',
-  },
-];
----
+<section class="py-20 sm:py-28 bg-slate-950">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <!-- Heading -->
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-white">Services</h2>
+      <p class="mt-3 text-lg text-slate-300 max-w-prose mx-auto">
+        Mindful, production-ready AI. We ship fast, stable, and simple—without drama.
+      </p>
+    </div>
 
-<section class="py-16 sm:py-20">
-  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-    <div class="flex flex-col gap-12">
-      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">What We Built</h2>
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {
-          services.map((service) => (
-            <a
-              href={service.href}
-              class="border-primary-900/10 dark:border-primary-300/10 hover:border-primary-600 dark:hover:border-primary-400 flex flex-col gap-4 rounded-3xl border p-6 transition"
-            >
-              <div class="h-10 w-10 text-primary-600 dark:text-primary-400">
-                {service.icon === 'recsys' && (
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <rect x="3" y="3" width="4" height="18" rx="1.5"/>
-                    <rect x="10" y="9" width="4" height="12" rx="1.5"/>
-                    <rect x="17" y="5" width="4" height="16" rx="1.5"/>
-                  </svg>
-                )}
-                {service.icon === 'goldminer' && (
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M3 21v-2l6-6 4 4-6 6H5a2 2 0 0 1-2-2Z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M14 10l7-7" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M14 4h7v6" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
-                )}
-                {service.icon === 'filmmaker' && (
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <rect x="3" y="5" width="18" height="14" rx="2"/>
-                    <path d="M7 5V3m10 2V3M7 19v2m10-2v2" strokeWidth="2" strokeLinecap="round"/>
-                    <polygon points="10,9 15,12 10,15" fill="currentColor"/>
-                  </svg>
-                )}
-              </div>
-              <h3 class="text-xl font-semibold">{service.name}</h3>
-              <p class="text-primary-950/70 dark:text-primary-200/70 text-base">{service.description}</p>
-            </a>
-          ))
-        }
-      </div>
+    <!-- Grid -->
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Card -->
+      <article class="group rounded-3xl bg-slate-900 p-6 ring-1 ring-slate-700 shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(99,102,241,0.35)]">
+        <div class="flex items-center gap-3">
+          <div class="grid h-11 w-11 place-items-center rounded-2xl bg-indigo-600/20 text-xl">📊</div>
+          <h3 class="text-xl font-semibold text-white">Recommender Systems</h3>
+        </div>
+        <p class="mt-3 text-slate-300">
+          CF/ALS to DCNv2 &amp; MMoE. Offline metrics + online A/B. APIs ready for UI or apps.
+        </p>
+        <ul class="mt-4 space-y-1 text-sm text-slate-400">
+          <li>• MovieLens/TMDB demos, e-commerce ready</li>
+          <li>• Cold-start &amp; multi-task CTR/CVR</li>
+          <li>• Batch + real-time serving</li>
+        </ul>
+      </article>
+
+      <article class="group rounded-3xl bg-slate-900 p-6 ring-1 ring-slate-700 shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(34,197,94,0.35)]">
+        <div class="flex items-center gap-3">
+          <div class="grid h-11 w-11 place-items-center rounded-2xl bg-emerald-500/20 text-xl">🤖</div>
+          <h3 class="text-xl font-semibold text-white">AI Agents</h3>
+        </div>
+        <p class="mt-3 text-slate-300">
+          Task-focused agents that ingest, clean, learn, and act—so you don’t have to.
+        </p>
+        <ul class="mt-4 space-y-1 text-sm text-slate-400">
+          <li>• Goldminer (data → model pipeline)</li>
+          <li>• PocketAdmin (ops &amp; automation)</li>
+          <li>• Script-to-film prototype agent</li>
+        </ul>
+      </article>
+
+      <article class="group rounded-3xl bg-slate-900 p-6 ring-1 ring-slate-700 shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(56,189,248,0.35)]">
+        <div class="flex items-center gap-3">
+          <div class="grid h-11 w-11 place-items-center rounded-2xl bg-sky-500/20 text-xl">🧩</div>
+          <h3 class="text-xl font-semibold text-white">Fine-tuning &amp; MLOps</h3>
+        </div>
+        <p class="mt-3 text-slate-300">
+          Train, track, deploy on GCP/AWS/Azure. Minimal ops, maximal reliability.
+        </p>
+        <ul class="mt-4 space-y-1 text-sm text-slate-400">
+          <li>• Experiments, registries, CI/CD</li>
+          <li>• Feature stores &amp; drift alerts</li>
+          <li>• Cost-aware infra &amp; autoscaling</li>
+        </ul>
+      </article>
+
+      <article class="group rounded-3xl bg-slate-900 p-6 ring-1 ring-slate-700 shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(244,114,182,0.35)]">
+        <div class="flex items-center gap-3">
+          <div class="grid h-11 w-11 place-items-center rounded-2xl bg-rose-500/20 text-xl">⚡️</div>
+          <h3 class="text-xl font-semibold text-white">Rapid Prototyping</h3>
+        </div>
+        <p class="mt-3 text-slate-300">
+          One-week sprints to validate ideas. From notebook to clickable demo.
+        </p>
+        <ul class="mt-4 space-y-1 text-sm text-slate-400">
+          <li>• Streamlit/Next.js demo UIs</li>
+          <li>• Clean APIs for handoff</li>
+          <li>• Clear docs &amp; next steps</li>
+        </ul>
+      </article>
+
+      <article class="group rounded-3xl bg-slate-900 p-6 ring-1 ring-slate-700 shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(251,191,36,0.35)]">
+        <div class="flex items-center gap-3">
+          <div class="grid h-11 w-11 place-items-center rounded-2xl bg-amber-500/20 text-xl">🧭</div>
+          <h3 class="text-xl font-semibold text-white">Advisory &amp; Coaching</h3>
+        </div>
+        <p class="mt-3 text-slate-300">
+          Architecture reviews, roadmaps, and hands-on pairing to upskill your team.
+        </p>
+        <ul class="mt-4 space-y-1 text-sm text-slate-400">
+          <li>• Model &amp; data design</li>
+          <li>• Build/buy decisions</li>
+          <li>• Hiring &amp; tech stack</li>
+        </ul>
+      </article>
+
+      <article class="group rounded-3xl bg-slate-900 p-6 ring-1 ring-slate-700 shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(168,85,247,0.35)]">
+        <div class="flex items-center gap-3">
+          <div class="grid h-11 w-11 place-items-center rounded-2xl bg-purple-500/20 text-xl">✨</div>
+          <h3 class="text-xl font-semibold text-white">Custom Models &amp; Data</h3>
+        </div>
+        <p class="mt-3 text-slate-300">
+          Your data, your edge—vertical models, private fine-tunes, and on-prem options.
+        </p>
+        <ul class="mt-4 space-y-1 text-sm text-slate-400">
+          <li>• Privacy-first deployments</li>
+          <li>• Evaluation harnesses</li>
+          <li>• Observability &amp; SLAs</li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 text-center">
+      <a href="/contact" class="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-5 py-3 text-white font-semibold shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+        Let’s build something mindful <span aria-hidden="true">→</span>
+      </a>
     </div>
   </div>
 </section>
