@@ -28,19 +28,19 @@ const links = [
     class="mx-auto flex max-w-2xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8"
   >
     <!-- Brand logo -->
-    <div class="flex">
+    <div class="flex items-center">
       <a
         href="/"
-        class="focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 rounded-md focus-visible:outline focus-visible:outline-2"
+        class="focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 inline-flex items-center gap-4 rounded-md focus-visible:outline focus-visible:outline-2"
       >
-        <span class="sr-only">Anapana.ai</span>
         <img
-          class="h-8 w-auto"
-          width="65"
-          height="40"
-          :src="$store.theme.isDark ? '/assets/logo-inverted.svg' : '/assets/logo.svg'"
+          class="h-40 w-auto sm:h-39"
+          src="/logo-transparent.png"
           alt="Anapana"
         />
+        <span class="text-primary-950 dark:text-primary-200 text-3xl font-semibold tracking-tight">
+          Anapana
+        </span>
       </a>
     </div>
 

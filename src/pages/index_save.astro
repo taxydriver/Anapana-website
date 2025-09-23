@@ -1,0 +1,140 @@
+---
+// src/pages/index.astro — Are.na-style minimal homepage for Anapana (refined leaner typography)
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anapana — Mindful AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #FAFAF7; /* off-white for most sections */
+        --hero-bg: #FFFFFF; /* pure white hero */
+        --ink: #111111;
+        --muted: #6B6B6B;
+        --saffron: #F6A623;
+        --saffron-strong: #E97400;
+        --space-1: 8px;  --space-2: 16px; --space-3: 28px; --space-4: 44px; --space-5: 80px; --space-6: 120px;
+        --maxw: 1000px;
+      }
+
+      /* Base */
+      body {
+        margin: 0; background: var(--bg); color: var(--ink);
+        font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif;
+        font-weight: 300; line-height: 1.65; letter-spacing: 0.25px;
+        font-size: 18px; /* leaner base */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+      a { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+      a:hover { color: var(--saffron-strong); }
+
+      /* Shell */
+      .wrap { max-width: var(--maxw); margin: 0 auto; padding: var(--space-5) var(--space-3); }
+      header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding-top: 16px; }
+      nav a { margin-left: 32px; font-weight: 400; font-size: 19px; opacity: 0.9; }
+      nav a:hover { opacity: 1; }
+
+      /* Animated SVG logo (no white box) */
+      .logo { display: inline-flex; align-items: center; }
+      .logo-svg { height: 140px; width: 140px; display: block; }
+      .wave-stroke { stroke-dasharray: 6 18; animation: dash-move 6s ease-in-out infinite; }
+      @keyframes dash-move { 0% { stroke-dashoffset: 0; } 50% { stroke-dashoffset: 36; } 100% { stroke-dashoffset: 0; } }
+
+      /* Hero */
+      .hero { padding: 120px 0 80px; text-align: center; background: var(--hero-bg); }
+      .title { font-size: clamp(36px, 6.4vw, 64px); font-weight: 300; line-height: 1.18; margin: var(--space-4) 0 var(--space-2); }
+      .tag { font-size: clamp(18px, 2.6vw, 22px); color: #777; margin: 0 auto 32px; max-width: 62ch; }
+
+      /* Products */
+      .grid { display: grid; grid-template-columns: 1fr; gap: 6px; font-size: 19px; }
+      .item { display: flex; align-items: baseline; gap: var(--space-2); padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,.04); transition: opacity .2s ease; }
+      .item:last-child { border-bottom: none; }
+      .item:hover { opacity: 0.85; }
+      .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--saffron); margin-top: 10px; flex: none; }
+
+      /* Footer */
+      footer { margin-top: var(--space-6); padding: var(--space-4) 0 var(--space-5); color: var(--muted); font-size: 16px; text-align: center; background: var(--bg); }
+      footer img { height: 40px; width: auto; opacity: 0.8; display: block; margin: 0 auto var(--space-2); }
+
+      /* Accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        .wave-stroke { animation: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <a class="logo" href="/" aria-label="Anapana home">
+          <!-- Inline SVG logo: blends with background and animates with a wave effect -->
+          <svg
+            class="logo-svg"
+            viewBox="0 0 96 96"
+            fill="none"
+            role="img"
+            aria-label="Anapana saffron spiral logo"
+            width="160"
+            height="160">
+            <defs>
+              <linearGradient id="saffronGrad" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#F6A623"/>
+                <stop offset="50%" stop-color="#E97400"/>
+                <stop offset="100%" stop-color="#F6A623"/>
+                <animate attributeName="x1" values="0;100;0" dur="8s" repeatCount="indefinite" />
+                <animate attributeName="x2" values="100;0;100" dur="8s" repeatCount="indefinite" />
+              </linearGradient>
+            </defs>
+            <!-- Single continuous stroke that tightens inward (double-ring spiral) -->
+            <path
+              d="M78 48c0-17-13-30-30-30S18 31 18 48c0 14 10 24 24 24 11 0 20-9 20-20 0-9-7-16-16-16-8 0-14 6-14 14 0 7 5 12 12 12"
+              stroke="url(#saffronGrad)"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"
+              class="wave-stroke" />
+          </svg>
+        </a>
+        <nav>
+          <a href="#products">Products</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="h1">
+          <h1 id="h1" class="title">Mindful AI</h1>
+          <p class="tag">Calm, clear, outcome-driven machine learning. Breathe. Build. Ship.</p>
+        </section>
+
+        <section id="products" class="grid" aria-label="Products">
+          <div class="item"><span class="dot"></span><a href="/demos/recsys">Recommender Systems</a><span style="color:var(--muted)"> — ALS/ItemKNN → DCNv2/MMoE</span></div>
+          <div class="item"><span class="dot"></span><a href="/demos/goldminer">Goldminer Agent</a><span style="color:var(--muted)"> — profile, clean, quick model</span></div>
+          <div class="item"><span class="dot"></span><a href="/demos/filmmaker">Filmmaker Agent</a><span style="color:var(--muted)"> — script → boards/voice/rough-cut</span></div>
+          <div class="item"><span class="dot"></span><a href="/demos/pocketadmin">PocketAdmin</a><span style="color:var(--muted)"> — deploy & monitor ML ops</span></div>
+        </section>
+
+        <section id="about" style="margin-top: var(--space-5); text-align:center; background: var(--bg); padding: var(--space-4)">
+          <p style="font-size:20px">Anapana is a one-person AI studio. Not hype — <span style="color:var(--saffron-strong)">clarity</span>, outcomes, and peace of mind.</p>
+        </section>
+
+        <section id="contact" style="margin-top: var(--space-4); text-align:center; background: var(--bg); padding: var(--space-3)">
+          <a href="mailto:hello@anapana.ai" style="text-decoration: underline; font-size:20px">hello@anapana.ai</a>
+        </section>
+      </main>
+
+      <footer>
+        <img src="/logo.png" alt="Anapana saffron spiral logo small" />
+        © {new Date().getFullYear()} Anapana — built with mindful minimalism.
+      </footer>
+    </div>
+  </body>
+</html>
