@@ -337,7 +337,22 @@ p {
 }
 
 .products {
+  position: relative;
+  padding: 96px 0;
+  z-index: 1;
   margin-top: -20px;
+}
+
+.products-header {
+  text-align: center;
+  margin-bottom: 56px;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.products-header h2 {
+  max-width: 640px;
 }
 
 .products-grid {
