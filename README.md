@@ -1,96 +1,73 @@
-# Stone: Astro Theme
+# React + TypeScript + Vite
 
-Stone is a free and open-source Astro theme specially designed for Business, Marketing, SaaS and Startup websites.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Key Features:
+Currently, two official plugins are available:
 
-- **Built with Tailwind CSS & Alpine.js**
-- **5+ Pages**
-- **15+ Sections**
-- Clean & Modern Design
-- Fully Responsive
-- Dark & Light Mode
-- Fast & Performant
-- Super Lightweight
-- View Transitions (experimental)
-- **Prettier** Code Formatter
-- **Google Fonts**
-- **Remix Icons**
-- Free Updates
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Getting Started
+## React Compiler
 
-### Requirements
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-- Basic knowledge of Astro, HTML and CSS.
-- Text editor (We recommend Visual Studio Code)
-- Node.js 18 or higher.
+## Expanding the ESLint configuration
 
-### Install dependencies
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-Navigate to your project folder and install its dependencies:
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-```
-npm install
-```
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-### Start
-
-Once the installation is done, you can now run your app:
-
-```
-npm run dev
-```
-
-This runs the app in development mode. Open http://localhost:3000 to view it in the browser.
-
-### Build
-
-```
-npm run build
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-This builds the app for production to the `./dist/` folder.
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-## Project Structure
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-Inside the project, you'll see the following folders and files:
-
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-/
-├── public/
-├── src/
-│   ├── components/
-│   ├── layouts/
-│   └── pages/
-├── .prettierrc
-├── astro.config.mjs
-├── package-lock.json
-├── package.json
-├── README.md
-├── tailwind.config.cjs
-└── tsconfig.json
-```
-
-- `public/*` - Any static assets (images, fonts, icons, ...)
-- `src/*` - Project source code (components, pages, ...)
-- `src/components/*` - Reusable Astro components used to build pages.
-- `src/layouts/*` - Astro components that define the UI structure shared by one or more pages..
-- `src/pages/*` - Astro components used to create new pages on your site. Each page is exposed as a route based on its file name.
-- `.prettierrc` - Prettier configuration file.
-- `astro.config.mjs` - Astro configuration file.
-- `package.json` - File used by JavaScript package managers to manage your dependencies. It also defines the scripts that are commonly used to run Astro.
-- `tailwind.config.cjs` - Tailwind configuration file. The theme section is where you define your color palette and fonts.
-- `tsconfig.json` - TypeScript configuration file.
-
-## Deployment
-
-Ready to build and deploy your site? Follow the [official documentation](https://docs.astro.build/en/guides/deploy/).
-
-## Support
-
-If you have any questions or suggestions do not hesitate to contact me.
-
-## License
-
-This project is licensed under the terms of the MIT license.
