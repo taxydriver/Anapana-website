@@ -4,6 +4,7 @@ import { Products } from "./components/Products";
 import { Capabilities } from "./components/Capabilities";
 import { Portfolio } from "./components/Portfolio";
 import { Philosophy } from "./components/Philosophy";
+import { CTASection } from "./components/CTASection";
 import { Footer } from "./components/Footer";
 import { FilmForgeRedirect } from "./components/FilmForgeRedirect";
 
@@ -16,6 +17,7 @@ function HomePage() {
       <Capabilities />
       <Portfolio />
       <Philosophy />
+      <CTASection />
       <Footer />
     </div>
   );

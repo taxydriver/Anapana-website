@@ -35,11 +35,10 @@ export function Philosophy() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span className="eyebrow pill">Mindful AI</span>
+          <span className="eyebrow pill">Our approach</span>
           <h2>Building with breath</h2>
           <p>
-            AI should feel considered, not chaotic. Each build is guided by awareness, empathy,
-            and the discipline to keep things simple.
+            FilmForge is built with awareness, not chaos. Every render pipeline, every prompt, every API call — deliberate. Guided by precision, empathy, and the discipline to keep things simple.
           </p>
           <div className="quote">
             <p>"Like breath, like code — conscious, deliberate, alive."</p>

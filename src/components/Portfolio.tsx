@@ -1,77 +1,107 @@
 import { motion } from "motion/react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { Code2, Server, Boxes, Database, Cloud, Database as StorageIcon } from "lucide-react";
 
-const portfolioItems = [
+const techStack = [
   {
-    title: "E-commerce Recommender",
-    category: "Machine Learning",
-    image: "https://images.unsplash.com/photo-1625461291092-13d0c45608b3?auto=format&fit=crop&w=1000&q=80",
+    name: "Next.js",
+    category: "Frontend",
+    description: "React framework for the UI",
+    icon: Code2,
   },
   {
-    title: "Conversational AI Agent",
-    category: "Natural Language",
-    image: "https://images.unsplash.com/photo-1757310998437-b2e8a7bd2e97?auto=format&fit=crop&w=1000&q=80",
+    name: "FastAPI",
+    category: "Backend",
+    description: "Python API for job orchestration",
+    icon: Server,
   },
   {
-    title: "Video Generation Pipeline",
-    category: "Generative AI",
-    image: "https://images.unsplash.com/photo-1591314222191-61fad06f4428?auto=format&fit=crop&w=1000&q=80",
+    name: "ComfyUI",
+    category: "Rendering",
+    description: "GPU-powered image generation",
+    icon: Boxes,
   },
   {
-    title: "Content Discovery System",
-    category: "Recommendation",
-    image: "https://images.unsplash.com/photo-1762279388979-6a430989284c?auto=format&fit=crop&w=1000&q=80",
+    name: "SQLite + WAL",
+    category: "Database",
+    description: "Persistent job state and metadata",
+    icon: Database,
   },
   {
-    title: "Sentiment Analysis Engine",
-    category: "Text Processing",
-    image: "https://images.unsplash.com/photo-1747726776587-06e07379aa1b?auto=format&fit=crop&w=1000&q=80",
+    name: "Vast.ai / RunPod",
+    category: "GPU Fleet",
+    description: "On-demand GPU workers",
+    icon: Cloud,
   },
   {
-    title: "Automated Video Editing",
-    category: "Computer Vision",
-    image: "https://images.unsplash.com/photo-1759914514194-b5883244e683?auto=format&fit=crop&w=1000&q=80",
+    name: "Supabase",
+    category: "Storage",
+    description: "Media storage and CDN",
+    icon: StorageIcon,
   },
 ];
 
 export function Portfolio() {
   return (
-    <section className="section portfolio">
+    <section className="portfolio">
+      <div className="portfolio-header">
+        <motion.div
+          className="eyebrow pill"
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          Under the hood
+        </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.05 }}
+          viewport={{ once: true }}
+        >
+          Production-grade architecture.
+        </motion.h2>
+      </div>
+
       <div className="content-width">
         <motion.div
-          className="section-header"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="portfolio-grid"
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.05 },
+            },
+          }}
         >
-          <span className="eyebrow pill">Portfolio</span>
-          <h2>Cinematic systems in the wild</h2>
-          <p>Snapshots from shipped work — precise, quiet, and production-ready.</p>
-        </motion.div>
-
-        <div className="portfolio-grid">
-          {portfolioItems.map((item, index) => (
-            <motion.article
-              key={item.title}
-              className="portfolio-card glass"
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.05 }}
-              whileHover={{ y: -4 }}
-            >
-              <div className="portfolio-image">
-                <ImageWithFallback src={item.image} alt={item.title} className="portfolio-img" />
-                <div className="portfolio-overlay" />
-                <div className="portfolio-caption">
-                  <span className="pill tag">{item.category}</span>
-                  <h4>{item.title}</h4>
+          {techStack.map((tech) => {
+            const Icon = tech.icon;
+            return (
+              <motion.article
+                key={tech.name}
+                className="portfolio-card glass"
+                variants={{
+                  hidden: { opacity: 0, scale: 0.96 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ y: -4 }}
+              >
+                <div className="tech-card-content">
+                  <div className="pill" style={{ background: "rgba(107, 209, 198, 0.12)", borderColor: "var(--accent-2)", color: "var(--accent-2)" }}>
+                    <Icon size={20} strokeWidth={1.5} />
+                  </div>
+                  <h4>{tech.name}</h4>
+                  <span className="tech-category">{tech.category}</span>
+                  <p>{tech.description}</p>
                 </div>
-              </div>
-            </motion.article>
-          ))}
-        </div>
+              </motion.article>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

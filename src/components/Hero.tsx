@@ -1,9 +1,14 @@
 import { motion } from "motion/react";
-import { Sparkles, Wind, Play } from "lucide-react";
+import { Film, ArrowRight, Clapperboard } from "lucide-react";
 
-const heroTags = ["AI agents", "Recommenders", "Generative video"];
+const heroTags = ["Scene analysis", "GPU rendering", "Prompt generation"];
 
 export function Hero() {
+  const handleScrollToHowItWorks = () => {
+    const element = document.getElementById("how-it-works");
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="hero">
       <div className="hero-backdrop">
@@ -19,14 +24,14 @@ export function Hero() {
       <div className="content-width hero-layout">
         <div className="hero-headline">
           <motion.div
-          className="eyebrow pill"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <Sparkles size={16} strokeWidth={1.5} />
-          <span>Mindful AI studio</span>
-        </motion.div>
+            className="eyebrow pill"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Film size={16} strokeWidth={1.5} />
+            <span>AI Filmmaking Studio</span>
+          </motion.div>
 
           <motion.h1
             className="hero-title"
@@ -34,7 +39,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.1 }}
           >
-            Breathe. Build. Ship.
+            Turn creative intent into cinematic frames.
           </motion.h1>
 
           <motion.p
@@ -43,8 +48,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2 }}
           >
-            Anapana.ai is a mindful, cinematic AI studio crafting agents, recommender systems,
-            and generative video tools with deliberate precision.
+            FilmForge is an AI-powered pipeline that reads your script, generates cinematic prompts, and renders video — frame by deliberate frame.
           </motion.p>
 
           <motion.div
@@ -53,20 +57,22 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <motion.button
+            <motion.a
+              href="/filmforge"
               className="btn primary"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
             >
-              Explore work
-              <Play size={16} strokeWidth={1.5} />
-            </motion.button>
+              Try FilmForge
+              <ArrowRight size={16} strokeWidth={1.5} />
+            </motion.a>
             <motion.button
               className="btn ghost"
+              onClick={handleScrollToHowItWorks}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
             >
-              Mindful AI philosophy
+              See how it works
             </motion.button>
           </motion.div>
 
@@ -92,32 +98,30 @@ export function Hero() {
         >
           <div className="hero-card-header">
             <div className="pill pulse">
-              <Wind size={16} strokeWidth={1.5} />
-              <span>Calm Systems</span>
+              <Clapperboard size={16} strokeWidth={1.5} />
+              <span>Render Preview</span>
             </div>
-            <div className="hero-spectrum" />
           </div>
           <div className="hero-card-body">
             <div>
-              <p className="hero-card-label">Cinematic engineering</p>
-              <h3>Agents that listen. Pipelines that flow.</h3>
+              <p className="hero-card-label">Job Status</p>
+              <h3>Scene → Prompts → Render</h3>
               <p>
-                Built end-to-end: research, prototyping, deployment. Every release breathes with
-                clarity and intent.
+                Your script is being analyzed. Creative intent is transformed into cinematic instructions. GPU workers are rendering frames.
               </p>
             </div>
             <div className="hero-meta">
               <div>
-                <span className="meta-label">Latency</span>
-                <strong>Real-time</strong>
+                <span className="meta-label">Progress</span>
+                <strong>72%</strong>
               </div>
               <div>
-                <span className="meta-label">Craft</span>
-                <strong>Precision</strong>
+                <span className="meta-label">Frames</span>
+                <strong>240/240</strong>
               </div>
               <div>
-                <span className="meta-label">Mood</span>
-                <strong>Zen</strong>
+                <span className="meta-label">Status</span>
+                <strong>Rendering</strong>
               </div>
             </div>
           </div>

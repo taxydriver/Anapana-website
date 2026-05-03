@@ -1,94 +1,87 @@
 import { motion } from "motion/react";
-import { Bot, Film, TrendingUp } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { PenLine, Sparkles, Clapperboard } from "lucide-react";
 
-const products = [
+const steps = [
   {
-    name: "Duku",
-    description:
-      "Context-aware AI agents that negotiate, coordinate, and improve with each interaction.",
-    icon: Bot,
-    accent: "linear-gradient(120deg, #69b7ff, #3f7ed6)",
-    image:
-      "https://images.unsplash.com/photo-1757310998437-b2e8a7bd2e97?auto=format&fit=crop&w=1000&q=80",
-    meta: ["Autonomous", "Secure", "Realtime"],
+    number: 1,
+    name: "Write",
+    icon: PenLine,
+    description: "Describe your scene. FilmForge reads creative intent, mood, pacing, and character.",
   },
   {
-    name: "FilmForge",
-    description: "Generative video workflows that turn creative intent into cinematic frames.",
-    icon: Film,
-    accent: "linear-gradient(120deg, #75f0e1, #4c9de2)",
-    image:
-      "https://images.unsplash.com/photo-1591314222191-61fad06f4428?auto=format&fit=crop&w=1000&q=80",
-    meta: ["Story-driven", "Pipelines", "GPU-ready"],
+    number: 2,
+    name: "Generate",
+    icon: Sparkles,
+    description: "The AI engine crafts cinematic prompts — camera movement, lighting, composition, motion.",
   },
   {
-    name: "Goldminer",
-    description:
-      "Recommender systems that surface signal from noise and deliver precise suggestions.",
-    icon: TrendingUp,
-    accent: "linear-gradient(120deg, #7ea6ff, #9dd0ff)",
-    image:
-      "https://images.unsplash.com/photo-1762279388979-6a430989284c?auto=format&fit=crop&w=1000&q=80",
-    meta: ["Predictive", "Adaptive", "Explainable"],
+    number: 3,
+    name: "Render",
+    icon: Clapperboard,
+    description: "GPU workers execute the pipeline. Frames are rendered, stitched, and delivered.",
   },
 ];
 
 export function Products() {
   return (
-    <section className="section products">
+    <section className="products" id="how-it-works">
+      <div className="products-header">
+        <motion.div
+          className="eyebrow pill"
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          The pipeline
+        </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.05 }}
+          viewport={{ once: true }}
+        >
+          From intent to image, in three steps.
+        </motion.h2>
+      </div>
+
       <div className="content-width">
         <motion.div
-          className="section-header"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="products-grid"
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.08 },
+            },
+          }}
         >
-          <span className="eyebrow pill">Products</span>
-          <h2>Purpose-built for quiet excellence</h2>
-          <p>Three tools, one studio — engineered end-to-end with cinematic calm.</p>
+          {steps.map((step) => {
+            
+            return (
+              <motion.article
+                key={step.name}
+                className="product-card glass"
+                variants={{
+                  hidden: { opacity: 0, y: 18 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ y: -6 }}
+              >
+                <div className="product-top" style={{ background: "linear-gradient(135deg, #1f9ad8 0%, #0d7ab3 100%)" }} />
+                <div className="product-body">
+                  <div className="step-number">{step.number}</div>
+                  <h3>{step.name}</h3>
+                  <p>{step.description}</p>
+                </div>
+              </motion.article>
+            );
+          })}
         </motion.div>
-
-        <div className="product-grid">
-          {products.map((product, index) => (
-            <motion.article
-              key={product.name}
-              className="product-card glass"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: index * 0.08 }}
-              whileHover={{ y: -6 }}
-            >
-              <div className="product-top" style={{ backgroundImage: product.accent }}>
-                <div className="product-top-line" />
-              </div>
-
-              <div className="product-body">
-                <div className="product-icon pill">
-                  <product.icon size={18} strokeWidth={1.6} />
-                </div>
-                <div className="product-text">
-                  <h3>{product.name}</h3>
-                  <p>{product.description}</p>
-                </div>
-                <div className="product-meta">
-                  {product.meta.map((item) => (
-                    <span key={item} className="pill tag">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="product-visual">
-                <div className="product-glow" style={{ backgroundImage: product.accent }} />
-                <ImageWithFallback src={product.image} alt={product.name} className="product-img" />
-              </div>
-            </motion.article>
-          ))}
-        </div>
       </div>
     </section>
   );

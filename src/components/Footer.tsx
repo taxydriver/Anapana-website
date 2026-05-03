@@ -9,14 +9,14 @@ export function Footer() {
       <div className="content-width">
         <div className="footer-grid">
           <motion.div
-          className="footer-brand"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <h3>Anapana.ai</h3>
-          <p>Mindful AI systems, handcrafted with care.</p>
+            className="footer-brand"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <h3>Anapana.ai</h3>
+            <p>AI filmmaking tools, built with deliberate precision.</p>
             <div className="footer-social">
               {[{ icon: Mail, label: "Email" }, { icon: Github, label: "GitHub" }, { icon: Linkedin, label: "LinkedIn" }, { icon: Twitter, label: "Twitter" }].map(
                 (social) => (
@@ -43,9 +43,7 @@ export function Footer() {
             transition={{ duration: 0.7, delay: 0.05 }}
           >
             <h4>Products</h4>
-            <a href="#">Duku</a>
-            <a href="#">FilmForge</a>
-            <a href="#">Goldminer</a>
+            <a href="/filmforge">FilmForge</a>
           </motion.div>
 
           <motion.div
