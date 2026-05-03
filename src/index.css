@@ -793,3 +793,47 @@ p {
     font-size: 16px;
   }
 }
+
+/* Capabilities Section */
+.capabilities {
+  position: relative;
+  padding: 96px 0;
+  z-index: 1;
+}
+
+.capabilities-header {
+  text-align: center;
+  margin-bottom: 56px;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.capabilities-header h2 {
+  max-width: 640px;
+}
+
+.capabilities-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Portfolio Section */
+.portfolio {
+  position: relative;
+  padding: 96px 0;
+  z-index: 1;
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 56px;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.portfolio-header h2 {
+  max-width: 640px;
+}
