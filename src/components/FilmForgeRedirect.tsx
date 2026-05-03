@@ -7,8 +7,7 @@ export function FilmForgeRedirect() {
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <p>Redirecting to FilmForge.....</p>
+      <p>Redirecting to FilmForge...</p>
     </div>
   );
 }
-np
