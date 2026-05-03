@@ -667,3 +667,114 @@ p {
     align-items: flex-start;
   }
 }
+
+/* CTA Section */
+.cta-section {
+  position: relative;
+  padding: 120px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cta-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(31, 154, 216, 0.2), transparent 70%);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(80px);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.cta-section h2 {
+  margin: 0;
+  max-width: 800px;
+}
+
+.cta-section p {
+  color: var(--muted);
+  font-size: 18px;
+  margin: 0;
+  max-width: 500px;
+}
+
+/* Products Grid - How It Works */
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--accent) 0%, rgba(31, 154, 216, 0.6) 100%);
+  border-radius: 50%;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+/* Portfolio - Tech Stack Cards */
+.tech-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.tech-category {
+  font-size: 12px;
+  color: var(--accent-2);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.portfolio-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 200px;
+  padding: 24px;
+}
+
+.portfolio-card h4 {
+  margin: 0 0 4px 0;
+}
+
+.portfolio-card p {
+  margin: 8px 0 0 0;
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 720px) {
+  .cta-section {
+    padding: 80px 0;
+  }
+
+  .cta-section h2 {
+    font-size: 32px;
+  }
+
+  .cta-section p {
+    font-size: 16px;
+  }
+}
