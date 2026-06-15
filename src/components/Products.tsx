@@ -1,87 +1,32 @@
-import { motion } from "motion/react";
-import { PenLine, Sparkles, Clapperboard } from "lucide-react";
-
 const steps = [
-  {
-    number: 1,
-    name: "Write",
-    icon: PenLine,
-    description: "Describe your scene. FilmForge reads creative intent, mood, pacing, and character.",
-  },
-  {
-    number: 2,
-    name: "Generate",
-    icon: Sparkles,
-    description: "The AI engine crafts cinematic prompts — camera movement, lighting, composition, motion.",
-  },
-  {
-    number: 3,
-    name: "Render",
-    icon: Clapperboard,
-    description: "GPU workers execute the pipeline. Frames are rendered, stitched, and delivered.",
-  },
+  { n: "01", title: "Intend", body: "The scene's feeling, rhythm, and what stays hidden are recorded before a single frame exists." },
+  { n: "02", title: "Render", body: "The imagery is generated — the motor, not the mind. Quality matters, but it's downstream of taste." },
+  { n: "03", title: "Observe", body: "The system reads back what was really made, in cinematic terms — not pixels, but pressure and pace." },
+  { n: "04", title: "Critique", body: "Intended versus observed, beat by beat. Did the feeling survive, weaken, or break?" },
+  { n: "05", title: "Re-cut", body: "You act on the note. Reorder, retime, hold a silence — and the judgment updates with you." },
 ];
 
 export function Products() {
   return (
-    <section className="products" id="how-it-works">
-      <div className="products-header">
-        <motion.div
-          className="eyebrow pill"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          The pipeline
-        </motion.div>
-        <motion.h2
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.05 }}
-          viewport={{ once: true }}
-        >
-          From intent to image, in three steps.
-        </motion.h2>
-      </div>
-
-      <div className="content-width">
-        <motion.div
-          className="products-grid"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: { staggerChildren: 0.08 },
-            },
-          }}
-        >
-          {steps.map((step) => {
-            
-            return (
-              <motion.article
-                key={step.name}
-                className="product-card glass"
-                variants={{
-                  hidden: { opacity: 0, y: 18 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ y: -6 }}
-              >
-                <div className="product-top" style={{ background: "linear-gradient(135deg, #1f9ad8 0%, #0d7ab3 100%)" }} />
-                <div className="product-body">
-                  <div className="step-number">{step.number}</div>
-                  <h3>{step.name}</h3>
-                  <p>{step.description}</p>
-                </div>
-              </motion.article>
-            );
-          })}
-        </motion.div>
+    <section className="block" id="how">
+      <div className="wrap">
+        <div className="slug eyebrow reveal">What makes it different</div>
+        <h2 className="display reveal">It has an opinion about its own work.</h2>
+        <p className="intro reveal">
+          Most tools generate, then stop. FilmForge plans a scene, renders it, and then{" "}
+          <em>watches what actually came back</em> — measuring it against what it meant. Where the
+          dread escalated. Where a cut landed flat. It says so, in a director's voice, and changes
+          the smallest thing that matters.
+        </p>
+        <div className="loop reveal">
+          {steps.map((s) => (
+            <div className="step" key={s.n}>
+              <div className="n">{s.n}</div>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

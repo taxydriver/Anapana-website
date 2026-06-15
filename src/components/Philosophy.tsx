@@ -1,70 +1,28 @@
-import { motion } from "motion/react";
-import { Heart, Eye, Compass, Leaf } from "lucide-react";
-
-const principles = [
-  {
-    icon: Heart,
-    title: "Intentional",
-    description: "Every line serves a purpose. No noise, no vanity features.",
-  },
-  {
-    icon: Eye,
-    title: "Mindful",
-    description: "Interfaces that respect attention and augment human connection.",
-  },
-  {
-    icon: Compass,
-    title: "Ethical",
-    description: "Trustworthy data, transparent decisions, and fair outcomes.",
-  },
-  {
-    icon: Leaf,
-    title: "Sustainable",
-    description: "Systems tuned for efficiency, longevity, and calm operations.",
-  },
+const tenets = [
+  { mk: "i", title: "Intentional", body: "Every shot serves the scene. No vanity features, no noise — only what the work needs." },
+  { mk: "ii", title: "Mindful", body: "The system tells the truth about where it failed. No fake-poetry, no hiding the seams." },
+  { mk: "iii", title: "Compassionate", body: "The filmmaker is at the centre — never a funnel. We measure whether the work moves you, not your time on a page." },
+  { mk: "iv", title: "Patient", body: "Everything changes; nothing is rushed. Built to last and to deepen, not to spike and fade." },
 ];
 
 export function Philosophy() {
   return (
-    <section className="section philosophy">
-      <div className="content-width philosophy-grid">
-        <motion.div
-          className="philosophy-lead glass"
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <span className="eyebrow pill">Our approach</span>
-          <h2>Building with breath</h2>
-          <p>
-            FilmForge is built with awareness, not chaos. Every render pipeline, every prompt, every API call — deliberate. Guided by precision, empathy, and the discipline to keep things simple.
+    <section className="dna" id="breath">
+      <div className="wrap">
+        <div className="dna-head">
+          <h2 className="display reveal">Built with breath.</h2>
+          <p className="breathline reveal">
+            Anapana means the breath — the steadying of attention. We build a studio the way we'd want
+            a film made: deliberate, honest, and patient enough to take the long view.
           </p>
-          <div className="quote">
-            <p>"Like breath, like code — conscious, deliberate, alive."</p>
-            <span>— The Anapana.ai way</span>
-          </div>
-        </motion.div>
-
-        <div className="principles">
-          {principles.map((principle, index) => (
-            <motion.article
-              key={principle.title}
-              className="principle-card glass"
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: index * 0.08 }}
-              whileHover={{ y: -4 }}
-            >
-              <div className="principle-icon pill">
-                <principle.icon size={18} strokeWidth={1.6} />
-              </div>
-              <div>
-                <h3>{principle.title}</h3>
-                <p>{principle.description}</p>
-              </div>
-            </motion.article>
+        </div>
+        <div className="tenets reveal">
+          {tenets.map((t) => (
+            <div className="tenet" key={t.mk}>
+              <span className="mk">{t.mk}</span>
+              <h4>{t.title}</h4>
+              <p>{t.body}</p>
+            </div>
           ))}
         </div>
       </div>
